@@ -4,15 +4,22 @@ import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, BedDouble, CalendarDays
 import { Button } from "@/components/ui/button";
 
 import exterior from "@/assets/image.png";
-import sign from "@/assets/image copy.png";
+import balconyView from "@/assets/shaanti-balcony-view.png";
+import dining from "@/assets/shaanti-dining.png";
+import bedroomCurtains from "@/assets/shaanti-room-curtains.png";
+import corridor from "@/assets/shaanti-corridor.png";
+import privateRoom from "@/assets/shaanti-deluxe-room.png";
+import privateRoomWindow from "@/assets/shaanti-deluxe-room-window.png";
+import terracePlanters from "@/assets/shaanti-terrace-balcony.png";
+import sign from "@/assets/shaanti-sign.png";
+import bathroomPhoto from "@/assets/shaanti-bathroom.png";
+import dormPhoto from "@/assets/shaanti-dorm-bunks.png";
 
-const balcony = "/images/image.png";
-const privateRoom = "/images/image copy.png";
-const dining = "/images/image copy 2.png";
-const guestRoom = "/images/image copy 4.png";
-const terrace = balcony;
-const bathroom = guestRoom;
-const dormBunks = privateRoom;
+const balcony = balconyView;
+const guestRoom = bedroomCurtains;
+const terrace = terracePlanters;
+const bathroom = bathroomPhoto;
+const dormBunks = dormPhoto;
 
 const phone = "+919520208308";
 const whatsApp = `https://wa.me/${phone.slice(1)}`;
@@ -37,8 +44,12 @@ const gallery = [
   { image: guestRoom, alt: "A comfortable private room", label: "Private rooms" },
   { image: dining, alt: "The on-site dining area", label: "Around the table" },
   { image: sign, alt: "Shaanti Coliving sign in the evening", label: "Find Shaanti" },
-  { image: balcony, alt: "A sunny balcony lined with plants", label: "A breath of fresh air" },
+  { image: balconyView, alt: "A sunny balcony lined with plants", label: "A breath of fresh air" },
   { image: bathroom, alt: "Bathroom in the guest accommodation", label: "The details" },
+  { image: corridor, alt: "A leafy corridor at Shaanti", label: "A leafy way through" },
+  { image: privateRoom, alt: "A private deluxe room at Shaanti", label: "A room of your own" },
+  { image: privateRoomWindow, alt: "Private room with a window and double bed", label: "Wake up slowly" },
+  { image: terracePlanters, alt: "Green plants lining the sunny terrace", label: "Green corners" },
 ];
 
 export const Route = createFileRoute("/")({
@@ -93,6 +104,7 @@ function ShaantiHome() {
   }, [lightbox]);
 
   const currentSlide = slides[slide];
+  if (currentSlide === undefined) return null;
   const moveSlide = (direction: number) => setSlide((current) => (current + direction + slides.length) % slides.length);
 
   function submitEnquiry(event: React.FormEvent<HTMLFormElement>) {
@@ -126,7 +138,7 @@ function ShaantiHome() {
       </header>
 
       <section id="home" className="hero" aria-label="Welcome to Shaanti Coliving">
-        {slides.map((item, index) => <div key={item.image} className={`hero-slide ${index === slide ? "active" : ""}`} style={{ backgroundImage: `url(${item.image})` }} aria-hidden={index !== slide} />)}
+        {slides.map((item, index) => <div key={index} className={`hero-slide ${index === slide ? "active" : ""}`} style={{ backgroundImage: `url(${item.image})` }} aria-hidden={index !== slide} />)}
         <div className="hero-shade" />
         <div className="hero-content" key={slide}>
           <p className="eyebrow hero-eyebrow"><span />{currentSlide.eyebrow}</p>
@@ -138,7 +150,7 @@ function ShaantiHome() {
           </div>
         </div>
         <div className="hero-bottom"><div className="hero-location"><MapPin aria-hidden="true" /> Tapovan, Rishikesh <span>·</span> Uttarakhand, India</div><div className="hero-controls"><span className="hero-count">0{slide + 1} <span>/ 0{slides.length}</span></span><Button variant="ghost" size="icon" aria-label="Previous slide" onClick={() => moveSlide(-1)}><ArrowLeft /></Button><Button variant="ghost" size="icon" aria-label="Next slide" onClick={() => moveSlide(1)}><ArrowRight /></Button></div></div>
-        <div className="hero-dots" aria-label="Choose a hero slide">{slides.map((item, index) => <button key={item.image} aria-label={`Show slide ${index + 1}`} aria-current={index === slide} onClick={() => setSlide(index)} />)}</div>
+        <div className="hero-dots" aria-label="Choose a hero slide">{slides.map((item, index) => <button key={index} aria-label={`Show slide ${index + 1}`} aria-current={index === slide} onClick={() => setSlide(index)} />)}</div>
       </section>
 
       <div className="quick-facts"><span><Star aria-hidden="true" /><strong>4.7</strong> <span className="fact-muted">· 127 reviews</span></span><span><MapPin aria-hidden="true" /> Tapovan, Rishikesh</span><span><Clock3 aria-hidden="true" /> Check-in 12 PM <i>·</i> Check-out 11 AM</span></div>

@@ -1,3 +1,4 @@
-- [ ] Build the single-page Shaanti homepage and its responsive visual system.
-- [ ] Add the supplied photo assets, section navigation, enquiry-to-WhatsApp flow, and contact details.
+- [x] Build the single-page Shaanti homepage and its responsive visual system.
+- [x] Add the supplied photo assets, section navigation, enquiry-to-WhatsApp flow, and contact details.
+- [ ] Use the newly attached property photos as directly imported PNGs in `src/assets` and resolve the slide build warning.
 - [ ] Verify the rendered page, navigation, enquiry form, and project checks; commit the finished work.

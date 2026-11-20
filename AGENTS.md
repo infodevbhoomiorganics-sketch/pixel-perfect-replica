@@ -28,3 +28,7 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+<!-- AGENT-MEMORY:BEGIN -->
+- Keep Shaanti property photos as regular PNG files in `src/assets` and import them directly, so the site uses the original images without JSON pointers.
+<!-- AGENT-MEMORY:END -->
